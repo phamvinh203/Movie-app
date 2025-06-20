@@ -1,0 +1,150 @@
+.movie-card {
+  display: block;
+  text-decoration: none;
+  color: inherit;
+  border-radius: 12px;
+  background: rgba(40, 40, 40, 0.95);
+}
+
+.movie-card:hover {
+  transform: translateY(-8px) scale(1.02);
+  /* box-shadow: 0 12px 32px rgba(0, 0, 0, 0.6); */
+  color: inherit;
+  text-decoration: none;
+}
+
+/* Phần hình ảnh */
+.movie-card .movie-poster {
+  position: relative;
+}
+
+.movie-card .movie-poster img {
+  width: 100%;
+  height: 300px;
+  object-fit: cover;
+  display: block;
+  border-radius: 12px 12px 0 0;
+  transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* .movie-card:hover .movie-poster img {
+  transform: scale(1.08);
+} */
+
+/* Góc trên bên trái và phải */
+.top-badges {
+  position: absolute;
+  top: 12px;
+  left: 12px;
+  right: 12px;
+  display: flex;
+  justify-content: space-between;
+  z-index: 3;
+}
+
+.badge {
+  padding: 6px 12px;
+  font-size: 0.75rem;
+  font-weight: 700;
+  color: white;
+  border-radius: 8px;
+}
+
+.badge.left {
+  background: linear-gradient(135deg, #ff6b6b, #ff8e8e);
+  box-shadow: 0 4px 12px rgba(255, 107, 107, 0.4);
+}
+
+.badge.right {
+  background: linear-gradient(135deg, #4ecdc4, #44a08d);
+  box-shadow: 0 4px 12px rgba(78, 205, 196, 0.4);
+}
+
+/* Nút play giữa hình ảnh */
+.movie-card .movie-poster .play-button {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background: rgba(255, 255, 255, 0.9);
+  color: #333;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+}
+
+.movie-card .movie-poster .play-button span {
+  font-size: 20px;
+}
+
+.movie-card:hover .movie-poster .play-button {
+  opacity: 1;
+  transform: translate(-50%, -50%) scale(1.1);
+}
+
+.movie-card .movie-info {
+  padding: 10px;
+}
+
+.movie-card .movie-title {
+  font-size: 1rem;
+  font-weight: 600;
+  color: #fff;
+  margin: 0;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.movie-card .movie-origin-title {
+  font-size: 0.85rem;
+  color: #ccc;
+  margin: 4px 0 0;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.movie-card .meta {
+  font-size: 0.75rem;
+  color: #999;
+  margin-top: 4px;
+  display: flex;
+  gap: 15px;
+  align-items: center;
+}
+
+.movie-card .meta span {
+  background: rgba(255, 255, 255, 0.1);
+  color: #ffe100;
+  padding: 4px 8px;
+  border-radius: 8px;
+  font-size: 0.7rem;
+  font-weight: 500;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  max-width: 110px;
+  display: inline-block;
+}
+
+.movie-card .categories {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin-top: 8px;
+}
+
+.category-badge {
+  background: rgba(255, 255, 255, 0.1);
+  color: #fff;
+  font-size: 0.7rem;
+  padding: 4px 10px;
+  border-radius: 12px;
+}

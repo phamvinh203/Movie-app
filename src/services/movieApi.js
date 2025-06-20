@@ -2,11 +2,11 @@ import axiosClient from "./axiosClient";
 
 const movieApi = {
   // phim mới cập nhật
-  getNewMovies: (page = 1) =>
-    axiosClient.get(`/danh-sach/phim-moi-cap-nhat?page=${page}`),
+  getNewMovies: (page = 1, limit = 12) =>
+    axiosClient.get(`/danh-sach/phim-moi-cap-nhat-v3?page=${page}`),
 
   // Lấy chi tiết phim và danh sách tập phim
-  getMovieDetail: (slug) => axiosClient.get(`/phim/${slug}`),
+  getMovieDetail: (slug) => axiosClient.get(`/${slug}`),
 
   // Tổng hợp danh sách phim có thể sử dụng
   //   getMoviesWithFilter: ({
@@ -39,11 +39,11 @@ const movieApi = {
   },
 
   // search phim
-  getSearchMovies : (keyword) => {
+  getSearchMovies: (keyword) => {
     return axiosClient.get("/v1/api/tim-kiem", {
-      params: { keyword }
-    })
-  }
+      params: { keyword },
+    });
+  },
 };
 
 export default movieApi;

@@ -1,0 +1,203 @@
+section {
+  margin: 2rem 0;
+}
+
+section .section-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1.5rem;
+}
+
+section .section-header .section-title {
+  font-size: 1.8rem;
+  font-weight: 700;
+  color: #ffffff;
+  margin: 0;
+}
+
+section .section-header .view-all-link {
+  color: #667eea;
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 1rem;
+  padding: 8px 16px;
+  border-radius: 6px;
+  background: rgba(102, 126, 234, 0.1);
+  border: 1px solid rgba(102, 126, 234, 0.3);
+  transition: all 0.3s ease;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+section .section-header .view-all-link:hover {
+  color: #ffffff;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  border-color: #667eea;
+  text-decoration: none;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(102, 126, 234, 0.3);
+}
+
+section .movies-container-wrapper {
+  position: relative;
+}
+
+section .movies-container-wrapper .scroll-btn {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: rgba(255, 255, 255, 0.9);
+  border: none;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 20px;
+  font-weight: bold;
+  color: #333;
+  cursor: pointer;
+  z-index: 10;
+  transition: all 0.3s ease;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+}
+
+section .movies-container-wrapper .scroll-btn:hover {
+  background: white;
+  transform: translateY(-50%) scale(1.1);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+}
+
+section .movies-container-wrapper .scroll-btn.scroll-btn-left {
+  left: -20px;
+}
+
+section .movies-container-wrapper .scroll-btn.scroll-btn-right {
+  right: -20px;
+}
+
+section .movies-container.scrollable {
+  overflow-x: auto;
+  overflow-y: hidden;
+  scroll-behavior: smooth;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+
+section .movies-container.scrollable::-webkit-scrollbar {
+  display: none;
+}
+
+section .movies-container.scrollable .movies-grid {
+  display: flex;
+  gap: 1.5rem;
+  padding: 0.5rem 0;
+}
+
+section .movies-container.scrollable .movies-grid .movie-item {
+  flex: 0 0 200px;
+  width: 200px;
+}
+
+section .movies-container:not(.scrollable) .movies-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  gap: 1.5rem;
+}
+
+section .movies-container .movie-item {
+  position: relative;
+}
+
+section .movies-container .movie-item > div:first-child {
+  position: absolute;
+  top: -8px;
+  left: -8px;
+  z-index: 2;
+  background: #ff6b6b;
+  color: white;
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.8rem;
+  font-weight: bold;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+}
+
+section .movies-container .movie-skeleton {
+  background: #2a2a2a;
+  border-radius: 8px;
+  overflow: hidden;
+  animation: pulse 1.5s ease-in-out infinite;
+}
+
+section .movies-container .movie-skeleton .skeleton-poster {
+  width: 100%;
+  height: 300px;
+  background: #3a3a3a;
+}
+
+section .movies-container .movie-skeleton .skeleton-title,
+section .movies-container .movie-skeleton .skeleton-info {
+  height: 16px;
+  margin: 8px 12px;
+  background: #3a3a3a;
+  border-radius: 4px;
+}
+
+section .movies-container .movie-skeleton .skeleton-info {
+  height: 12px;
+  width: 60%;
+}
+
+section .movies-container .error-message,
+section .movies-container .empty-message {
+  text-align: center;
+  padding: 3rem 1rem;
+  color: #888;
+  font-size: 1.1rem;
+}
+
+section .movies-container .error-message p,
+section .movies-container .empty-message p {
+  margin: 0;
+}
+
+section .movies-container .error-message {
+  color: #ff6b6b;
+}
+
+@media (max-width: 768px) {
+  section {
+    margin: 1.5rem 0;
+  }
+
+  section .section-header {
+    margin-bottom: 1rem;
+  }
+
+  section .section-header .section-title {
+    font-size: 1.5rem;
+  }
+
+  section .movies-container > div {
+    grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+    gap: 1rem;
+  }
+}
+
+@keyframes pulse {
+  0%,
+  100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.8;
+  }
+}

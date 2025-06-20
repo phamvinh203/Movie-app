@@ -7,7 +7,7 @@ const AppRouter = () => {
   return (
     <Routes>
       <Route path="/" element={<Home />} />
-      <Route path="/phim/:type" element={<Movies />} />
+      <Route path="/:type" element={<Movies />} />
       <Route path="/search" element={<SearchResult />} />
     </Routes>
   );

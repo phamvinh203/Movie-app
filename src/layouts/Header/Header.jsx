@@ -8,7 +8,7 @@ function Header() {
       <Link to="/">🏠 Trang chủ</Link>
       <Search />
       {TYPES.map((item) => (
-        <Link key={item.value} to={`/phim/${item.value}`}>
+        <Link key={item.value} to={`/${item.value}`}>
           {item.label}
         </Link>
       ))}

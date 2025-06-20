@@ -4,11 +4,19 @@ import TYPES from "../constants/movieTypes";
 
 export default function Home() {
   // Phim mới cập nhật
-  const { movies: newMovies, loading: loadingNew } = useMovie({ isNew: true, limit: 12 });
+  const { movies: newMovies, loading: loadingNew } = useMovie({
+    isNew: true,
+    page: 1,
+    limit: 12,
+  });
 
   // Lấy phim theo từng type từ movieTypes
   const movieSections = TYPES.map((type) => {
-    const { movies, loading } = useMovie({ type: type.value, page: 1, limit: 12 });
+    const { movies, loading } = useMovie({
+      type: type.value,
+      page: 1,
+      limit: 12,
+    });
     return { ...type, movies, loading };
   });
 
@@ -22,8 +30,10 @@ export default function Home() {
       {/* Section phim mới */}
       <MovieSection
         title="🎬 Phim mới cập nhật"
-        movies={newMovies}
+        movies={newMovies.slice(0, 12)}
         emptyMessage="Không có phim mới"
+        showViewAll={true}
+        viewAllLink="/"
       />
 
       {/* Dynamic sections từ movieTypes */}
@@ -33,6 +43,8 @@ export default function Home() {
           title={`🎞️ ${section.label}`}
           movies={section.movies}
           emptyMessage={`Không có ${section.label.toLowerCase()}`}
+          showViewAll={true}
+          viewAllLink={`/${section.value}`}
         />
       ))}
     </div>
