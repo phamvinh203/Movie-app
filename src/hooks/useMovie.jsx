@@ -12,6 +12,7 @@ export default function useMovie({
   const [error, setError] = useState(null);
   const [currentPage, setCurrentPage] = useState(1);
   const [totalPages, setTotalPages] = useState(1);
+  const [titlePage, setTitlePage] = useState("");
 
   const getFullImageUrl = (url) => {
     if (!url) return "";
@@ -40,6 +41,18 @@ export default function useMovie({
             limit,
           });
           rawMovies = res?.data?.items || [];
+
+          if (res?.data?.titlePage) {
+            setTitlePage(res.data.titlePage);
+          }
+          
+          // Kiểm tra nếu res.data.params tồn tại → dùng totalPages
+          if (res?.data?.params?.pagination?.totalPages) {
+            setTotalPages(res.data.params.pagination.totalPages);
+          } else {
+            // fallback mặc định = 1 nếu không có params hoặc pagination
+            setTotalPages(1);
+          }
         }
 
         console.log("API response items count:", rawMovies.length);
@@ -53,7 +66,7 @@ export default function useMovie({
         });
         setMovies(imgUrl);
         setCurrentPage(page);
-        setTotalPages(res.data.params.pagination.totalPages || 1);
+        // setTotalPages(res.data.params.pagination.totalPages || 1);
       } catch (err) {
         console.error("Lỗi khi fetch movie:", err);
         setError(err);
@@ -64,5 +77,5 @@ export default function useMovie({
     fetchMovies();
   }, [type, page, isNew, limit]);
 
-  return { movies, loading, error, currentPage, setCurrentPage, totalPages };
+  return { movies, loading, error, currentPage, totalPages, titlePage };
 }

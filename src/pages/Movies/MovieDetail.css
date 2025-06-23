@@ -1,0 +1,212 @@
+.movie-detail {
+  margin: 0 auto;
+  padding: 1rem;
+  background: #1a1a1a;
+  color: #ffffff;
+  font-family: 'Arial', sans-serif;
+}
+
+/* Loading, Error, Not Found States */
+.loading-state,
+.error-state,
+.not-found-state {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 50vh;
+  text-align: center;
+}
+
+.loading-state div,
+.error-state div,
+.not-found-state div {
+  font-size: 3rem;
+  margin-bottom: 1rem;
+}
+
+.loading-state p,
+.error-state p,
+.not-found-state p {
+  font-size: 1.2rem;
+  color: #aaaaaa;
+}
+
+.error-state p {
+  color: #ff6b6b;
+}
+
+/* Movie Header */
+.movie-header {
+  display: flex;
+  gap: 2rem;
+  margin-bottom: 2rem;
+}
+
+.movie-poster {
+  flex: 0 0 300px;
+}
+
+.movie-poster img {
+  width: 100%;
+  height: auto;
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+  object-fit: cover;
+}
+
+.movie-info {
+  flex: 1;
+}
+
+.movie-title {
+  font-size: 2.2rem;
+  font-weight: 700;
+  margin: 0 0 0.5rem;
+  color: #ffffff;
+}
+
+.movie-meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  margin-bottom: 1rem;
+}
+
+.meta-item {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  background: rgba(255, 255, 255, 0.1);
+  padding: 0.5rem 1rem;
+  border-radius: 6px;
+  font-size: 0.9rem;
+  color: #aaaaaa;
+}
+
+.meta-item span:first-child {
+  font-size: 1.1rem;
+}
+
+.movie-description {
+  font-size: 1rem;
+  line-height: 1.6;
+  color: #aaaaaa;
+  max-width: 800px;
+}
+
+.movie-description p {
+  margin: 0;
+}
+
+/* Episodes Section */
+.episodes-section {
+  margin-top: 2rem;
+}
+
+.episodes-title {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 1.8rem;
+  font-weight: 600;
+  margin-bottom: 1rem;
+  color: #ffffff;
+}
+
+.episodes-title span {
+  font-size: 1.5rem;
+}
+
+.episodes-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
+  gap: 1rem;
+}
+
+.episode-btn {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0.8rem;
+  background: rgba(255, 255, 255, 0.1);
+  border: none;
+  border-radius: 8px;
+  font-size: 0.9rem;
+  color: #ffffff;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.episode-btn:hover {
+  background: #667eea;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+}
+
+.episode-name {
+  flex: 1;
+  text-align: left;
+}
+
+.external-icon {
+  font-size: 1rem;
+  color: #aaaaaa;
+}
+
+.episode-btn:hover .external-icon {
+  color: #ffffff;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .movie-header {
+    flex-direction: column;
+    gap: 1rem;
+  }
+
+  .movie-poster {
+    flex: 0 0 auto;
+    max-width: 100%;
+  }
+
+  .movie-title {
+    font-size: 1.8rem;
+  }
+
+  .episodes-title {
+    font-size: 1.5rem;
+  }
+
+  .episodes-grid {
+    grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));
+  }
+
+  .episode-btn {
+    font-size: 0.8rem;
+    padding: 0.6rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .movie-detail {
+    padding: 0.5rem;
+  }
+
+  .movie-title {
+    font-size: 1.5rem;
+  }
+
+  .meta-item {
+    font-size: 0.8rem;
+    padding: 0.4rem 0.8rem;
+  }
+
+  .episodes-title {
+    font-size: 1.3rem;
+  }
+
+  .episodes-grid {
+    grid-template-columns: repeat(auto-fill, minmax(80px, 1fr));
+  }
+}

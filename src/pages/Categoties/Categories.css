@@ -1,0 +1,80 @@
+.categories-loading {
+  text-align: center;
+  color: #4ecdc4;
+  font-size: 1.1rem;
+  margin-top: 2rem;
+}
+
+.categories-error {
+  text-align: center;
+  color: #ff6b6b;
+  font-size: 1.1rem;
+  margin-top: 2rem;
+}
+
+
+.categories-container {
+  margin: 0 auto;
+  padding: 2rem;
+  background: linear-gradient(135deg, #0c1425, #1a1a2e);
+  border-radius: 12px;
+  color: #fff;
+}
+
+.categories-container h1 {
+  font-size: 2rem;
+  margin-bottom: 1.5rem;
+  color: #4ecdc4;
+  text-align: center;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.4);
+}
+
+.category-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  list-style: none;
+  padding: 0;
+  justify-content: center;
+}
+
+.category-list li {
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 8px;
+  transition: all 0.3s ease;
+  padding: 0.5rem 1rem;
+}
+
+.category-list li a {
+  color: #fff;
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 1rem;
+  transition: color 0.2s ease;
+}
+
+.category-list li a:hover {
+  color: #4ecdc4;
+}
+
+.category-list li:hover {
+  background: rgba(255, 255, 255, 0.08);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .categories-container {
+    padding: 1rem;
+  }
+
+  .category-list {
+    gap: 0.75rem;
+  }
+
+  .category-list li a {
+    font-size: 0.9rem;
+  }
+}
